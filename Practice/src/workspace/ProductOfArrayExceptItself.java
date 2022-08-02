@@ -40,5 +40,5 @@ public class ProductOfArrayExceptItself {
 		scan.close();
 
 	}
-
+//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
 }
