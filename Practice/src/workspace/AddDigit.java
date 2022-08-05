@@ -8,7 +8,7 @@ public class AddDigit {
 	public int[] Plusone(int[] digit) {
 		int n = digit.length;
 		int carry = 0;
-		for(int i = n-1; i > 0; i--) {
+		for(int i = n-1; i >= 0; i--) {
 			if(digit[i] < 9) {
 				digit[i]++;
 				carry = 0;
@@ -18,7 +18,6 @@ public class AddDigit {
 			carry = 1;
 		}
 		if(carry == 1) {
-			digit[0] = 0;
 			digit = Arrays.copyOf(digit, n+1);
 			digit[0] = 1;
 		}
