@@ -6,15 +6,37 @@ public class MergeSortedArray {
 
 	public int[] mergeArray(int[] nums1, int[] nums2, int m, int n) {
 
-		int i = m - 1;
-		int j = n - 1;
-		int k = m + n - 1;
+		if (m <= 0) {
+			System.out.print(nums2);
+		}
 
-		while (j >= 0) {
-			if (i >= 0 && nums1[i] > nums2[j]) {
-				nums1[k--] = nums1[i--];
+		if (n <= 0) {
+			System.out.print(nums1);
+		}
+
+		int i = 0;
+		int j = 0;
+		for (i = 0; i < nums1.length && j < nums2.length; i++) {
+			if (nums1[i] < nums2[j]) {
+				continue;
 			} else {
-				nums1[k--] = nums2[j--];
+				while (m > i) {
+					nums1[m] = nums1[m - 1];
+					m -= 1;
+				}
+				nums1[i] = nums2[j];
+				j++;
+				m = (nums1.length - (nums2.length - j));
+			}
+		}
+
+		if (j < nums2.length) {
+			i = nums1.length - (nums2.length - j);
+
+			while (i < nums1.length) {
+				nums1[i] = nums2[j];
+				i += 1;
+				j += 1;
 			}
 		}
 		return nums1;
