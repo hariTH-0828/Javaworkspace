@@ -80,24 +80,35 @@ public class LinkedList {
 		}
 	}
 
+	public void reverseList(LinkedList list) {
+		Node node = list.head;
+//		Node prev = null;
+		while (node.next != null) {
+
+		}
+	}
+
+	public void mergeTwoSortedList(LinkedList list1, LinkedList list2) {
+
+	}
+
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
+		LinkedList list1 = new LinkedList();
+		LinkedList list2 = new LinkedList();
 
-		list.insert(1);
-		list.insert(2);
-		list.insert(3);
-		list.insert(5);
-		list.insert(6);
-		list.insert(7);
-		list.insert(8);
+		list1.insert(1);
+		list1.insert(2);
+		list1.insert(4);
 
-		list.insertInto(1, 0);
-		list.insertInto(5, 4);
-		list.insertInto(10, 9);
+		list2.insert(1);
+		list2.insert(3);
+		list2.insert(5);
 
-		list.deleteByKey(9);
-
-		list.printList(list);
+		list1.printList(list1);
+		System.out.println();
+		list2.printList(list2);
+		System.out.println();
+		list1.mergeTwoSortedList(list1, list2);
 	}
 
 }
