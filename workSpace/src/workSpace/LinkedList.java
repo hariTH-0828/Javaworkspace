@@ -1,6 +1,6 @@
 package workSpace;
 
-public class LinkedList {
+public class LinkedList implements LinkedLists {
 
 	Node head;
 
@@ -78,37 +78,6 @@ public class LinkedList {
 				currNode = currNode.next;
 			}
 		}
-	}
-
-	public void reverseList(LinkedList list) {
-		Node node = list.head;
-//		Node prev = null;
-		while (node.next != null) {
-
-		}
-	}
-
-	public void mergeTwoSortedList(LinkedList list1, LinkedList list2) {
-
-	}
-
-	public static void main(String[] args) {
-		LinkedList list1 = new LinkedList();
-		LinkedList list2 = new LinkedList();
-
-		list1.insert(1);
-		list1.insert(2);
-		list1.insert(4);
-
-		list2.insert(1);
-		list2.insert(3);
-		list2.insert(5);
-
-		list1.printList(list1);
-		System.out.println();
-		list2.printList(list2);
-		System.out.println();
-		list1.mergeTwoSortedList(list1, list2);
 	}
 
 }

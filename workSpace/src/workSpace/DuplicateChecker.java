@@ -1,6 +1,7 @@
 package workSpace;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Set;
 
 public class DuplicateChecker {
@@ -19,6 +20,12 @@ public class DuplicateChecker {
 			if (set.get(i) > 1) {
 				System.out.print(i + " ");
 			}
+		}
+
+		System.out.println("\n***Working with Iterator***");
+		Iterator<Character> iterator = keyset.iterator();
+		while (iterator.hasNext()) {
+			System.out.println(iterator.next() + " ");
 		}
 	}
 
