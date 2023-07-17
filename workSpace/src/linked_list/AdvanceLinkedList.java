@@ -1,4 +1,4 @@
-package workSpace;
+package linked_list;
 
 public interface AdvanceLinkedList {
 

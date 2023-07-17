@@ -1,4 +1,4 @@
-package workSpace;
+package linked_list;
 
 public class LinkedList implements LinkedLists {
 
@@ -69,15 +69,48 @@ public class LinkedList implements LinkedLists {
 		}
 	}
 
-	public void printList(LinkedList list) {
+	public int size(LinkedList list) {
+		int count = 0;
+		Node head = list.head;
+		while (head != null) {
+			count += 1;
+			head = head.next;
+		}
+		return count;
+	}
+
+	public String printList(LinkedList list) {
+		String integer = "";
 		if (list.head != null) {
 			Node currNode = list.head;
 			System.out.print("LinkedList: ");
 			while (currNode != null) {
 				System.out.print(currNode.data + " ");
+				integer += currNode.data;
 				currNode = currNode.next;
 			}
 		}
+		return integer;
 	}
+
+	public LinkedList reorderList(LinkedList list) {
+		Node currNode = list.head;
+		Node prev = null;
+
+		for (int i = 0; i < list.size(list); i++) {
+			if (i % 2 == 0) {
+				prev = currNode;
+				currNode = currNode.next;
+			} else {
+				Node nextCopy = head.next;
+				currNode.next = currNode;
+				currNode.next = nextCopy;
+				prev.next = null;
+			}
+		}
+
+		return list;
+	}
+
 
 }

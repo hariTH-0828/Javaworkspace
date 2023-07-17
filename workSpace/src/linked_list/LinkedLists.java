@@ -1,4 +1,4 @@
-package workSpace;
+package linked_list;
 
 public interface LinkedLists {
 	public void insert(int data);
@@ -7,5 +7,7 @@ public interface LinkedLists {
 
 	public void deleteByKey(int key);
 
-	public void printList(LinkedList list);
+	public String printList(LinkedList list);
+
+	public LinkedList reorderList(LinkedList list);
 }
