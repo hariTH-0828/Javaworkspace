@@ -1,4 +1,4 @@
-package workSpace;
+package array;
 
 public class ArrayToInteger {
 
