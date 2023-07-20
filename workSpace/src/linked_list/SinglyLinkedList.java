@@ -22,9 +22,11 @@ public class SinglyLinkedList extends LinkedList {
 
 		list1.insert(1);
 		list1.insert(2);
-		list1.insert(1);
+		list1.insert(3);
+		list1.insert(4);
+		list1.insert(5);
 
-		list1.printList(list1);
+		list1.printList(list1.reverseList(list1));
 		System.out.println();
 
 	}
