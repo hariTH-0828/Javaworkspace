@@ -1,17 +1,41 @@
-package array;
+package workSpace.src.array;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class TopKFrequentElement {
 
-	public int[] topKFrequent(int[] nums, int k) {
+	public static int[] topKFrequent(int[] nums, int k) {
+		Map<Integer, Integer> frequencyMap = new HashMap<>();
+		for (int num : nums) {
+			frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+		}
 
-		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-		HashMap<Integer, List<Integer>> frequent = new HashMap<Integer, List<Integer>>();
+		// Step 2: Group elements by frequency
+		Map<Integer, List<Integer>> frequentMap = new HashMap<>();
+		for (int num : frequencyMap.keySet()) {
+			int frequency = frequencyMap.get(num);
+			frequentMap.computeIfAbsent(frequency, key -> new ArrayList<>()).add(num);
+		}
+
+		// Step 3: Get the top k frequent elements
 		int[] result = new int[k];
+		int i = 0;
+		for (int freq = nums.length; freq >= 0 && i < k; freq--) {
+			if (frequentMap.containsKey(freq)) {
+				List<Integer> elements = frequentMap.get(freq);
+				for (int num : elements) {
+					result[i++] = num;
+					if (i == k) break;
+				}
+			}
+		}
+
+		return result;
+	}
+
+	public static int[] kFrequentElement(int[] nums, int k){
+		HashMap<Integer, Integer> map = new HashMap<>();
+		HashMap<Integer, List<Integer>> frequent = new HashMap<>();
 
 		for (int i : nums) {
 			if (!map.containsKey(i)) {
@@ -32,15 +56,23 @@ public class TopKFrequentElement {
 			}
 		}
 
-		return nums;
+		int[] list = frequent.values().stream()
+				.flatMap(List::stream)
+				.mapToInt(Integer::intValue).toArray();
+		int[] result = new int[k];
+		int j = 0;
+		for(int i = list.length - 1; i >= 0 && j < k; i--){
+			result[j] = list[i];
+			j++;
+		}
+		return result;
 	}
 
 	public static void main(String[] args) {
-		int[] nums = { 2, 1, 5, 1, 2, 5, 2, 5, 3 };
+		int[] nums = { 2, 3, 2, 4, 5, 6, 1, 2, 5, 3 };
 		int k = 2;
 
-		TopKFrequentElement frequents = new TopKFrequentElement();
-		int[] topKelements = frequents.topKFrequent(nums, k);
+		int[] topKelements = TopKFrequentElement.topKFrequent(nums, k);
 		System.out.println(Arrays.toString(topKelements));
 	}
 
