@@ -1,6 +1,8 @@
-package workSpace;
+package workSpace.src.workSpace;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class LongestSubStringWithoutRepeating {
@@ -8,18 +10,16 @@ public class LongestSubStringWithoutRepeating {
 	// VideoLink : https://www.youtube.com/watch?v=wiGpQwVHdE0
 
 	int lengthOfSubString(String sentence) {
-		Set<Character> set = new HashSet<Character>();
+		List<Character> listSet = new ArrayList<>();
 		int res = 0;
 		for (int i = 0; i < sentence.length();) {
-			if (!set.contains(sentence.charAt(i))) {
-				set.add(sentence.charAt(i));
-				res = Math.max(res, set.size());
+			if (!listSet.contains(sentence.charAt(i))) {
+				listSet.add(sentence.charAt(i));
+				res = Math.max(res, listSet.size());
 				i++;
 			}else {
-				int l = 0;
-				while (set.contains(sentence.charAt(i))) {
-					set.remove(sentence.charAt(l));
-					l += 1;
+				while (listSet.contains(sentence.charAt(i))) {
+					listSet.remove(0);
 				}
 			}
 		}
