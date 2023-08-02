@@ -1,4 +1,4 @@
-package workSpace;
+package workSpace.src.sorting;
 
 import java.util.Arrays;
 
