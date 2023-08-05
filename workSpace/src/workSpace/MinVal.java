@@ -1,4 +1,4 @@
-package workSpace;
+package workSpace.src.workSpace;
 
 import java.util.Scanner;
 import java.util.Stack;

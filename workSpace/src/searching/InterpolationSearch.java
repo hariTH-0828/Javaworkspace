@@ -6,6 +6,9 @@ public class InterpolationSearch {
         int high = arr.length - 1;
 
         while (low <= high && target >= arr[low] && target <= arr[high]) {
+            if(low == high){
+                return low;
+            }
             // Estimate the position of the target element in the array
             int pos = low + ((target - arr[low]) * (high - low)) / (arr[high] - arr[low]);
 
@@ -22,8 +25,8 @@ public class InterpolationSearch {
     }
 
     public static void main(String[] args) {
-        int[] arr = {5};
-        int target = 5;
+        int[] arr = {5,6,7,8,9,10,11,12};
+        int target = 11;
 
         int resultIndex = interpolationSearch(arr, target);
 
