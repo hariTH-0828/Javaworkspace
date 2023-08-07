@@ -48,12 +48,10 @@ public class MergeSortedArray {
 			System.out.print(nums1);
 		}
 
-		int i = 0;
+		int i;
 		int j = 0;
 		for (i = 0; i < nums1.length && j < nums2.length; i++) {
-			if (nums1[i] < nums2[j]) {
-				continue;
-			} else {
+			if (nums1[i] > nums2[j]) {
 				while (m > i) {
 					nums1[m] = nums1[m - 1];
 					m -= 1;
