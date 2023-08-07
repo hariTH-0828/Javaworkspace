@@ -2,13 +2,13 @@ package workSpace.src.sorting;
 
 import java.util.Arrays;
 
-public class HeapSort {
+public class MaxHeapSort {
 
     private final int[] heapArray;
     private final int capacity;
     private int size;
 
-    public HeapSort(int capacity){
+    public MaxHeapSort(int capacity){
         heapArray = new int[capacity];
         this.capacity = capacity;
         size = 0;
@@ -64,11 +64,11 @@ public class HeapSort {
         int leftChild = getLeftChild(index);
         int rightChild = getRightChild(index);
 
-        if(index >= 0 && heapArray[index] < heapArray[leftChild]){
+        if(leftChild < size && heapArray[maxValue] < heapArray[leftChild]){
             maxValue = leftChild;
         }
 
-        if(index >= 0 && heapArray[index] < heapArray[rightChild]){
+        if(rightChild < size && heapArray[maxValue] < heapArray[rightChild]){
             maxValue = rightChild;
         }
 
@@ -97,15 +97,23 @@ public class HeapSort {
         heapArray[j] = temp;
     }
 
+    @Override
+    public String toString() {
+        return Arrays.toString(heapArray);
+    }
+
     public static void main(String[] args) {
-        HeapSort heapSort = new HeapSort(10);
-        int[] arr = { 12, 11, 13, 5, 6, 7 };
+        MaxHeapSort heapSort = new MaxHeapSort(10);
+        int[] arr = {12, 11, 13, 5, 6, 7, 1, 4};
         for(int i : arr){
             heapSort.insert(i);
         }
 
-        System.out.println(Arrays.toString(heapSort.heapArray));
+        System.out.println(heapSort);
         System.out.println("Polling : "+heapSort.poll());
-        System.out.println(Arrays.toString(heapSort.heapArray));
+        System.out.println(heapSort);
+        System.out.println("Polling : "+heapSort.poll());
+        System.out.println(heapSort);
+        System.out.println("Polling : "+heapSort.poll());
     }
 }
