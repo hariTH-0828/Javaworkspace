@@ -1,0 +1,26 @@
+package workSpace.src.designPattern.creational.builder.vehicleBuilder;
+
+public class Car implements Vehicle {
+
+    private String color;
+    private String engineType;
+    private String designType;
+    private int engineCC;
+
+    public Car(String color, String engineType, String designType, int engineCC) {
+        this.color = color;
+        this.engineType = engineType;
+        this.designType = designType;
+        this.engineCC = engineCC;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "color='" + color + '\'' +
+                ", engineType='" + engineType + '\'' +
+                ", designType='" + designType + '\'' +
+                ", engineCC=" + engineCC +
+                '}';
+    }
+}
