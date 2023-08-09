@@ -8,30 +8,26 @@ public class KthLargestElement {
 
     int[] nums;
     int k;
-    PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Collections.reverseOrder());
+    PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
     public KthLargestElement(int k, int[] nums){
-        initialize(k, nums);
-    }
-
-    private void initialize(int k, int[] nums) {
-        this.nums = nums;
         this.k = k;
+        this.nums = nums;
 
-        for(int i : nums) {
+        for(int i : nums){
             priorityQueue.add(i);
         }
     }
 
     public int add(int val){
         priorityQueue.add(val);
-        int kthMax = 0;
-        for(int i = 0; i < k; i++){
-            if(!priorityQueue.isEmpty()){
-                kthMax = priorityQueue.poll();
-            }
+        while(priorityQueue.size() > k) {
+            priorityQueue.poll();
         }
 
-        return kthMax;
+        if(!priorityQueue.isEmpty()){
+            return priorityQueue.peek();
+        }
+        return 0;
     }
 
     public static void main(String[] args) {
@@ -39,5 +35,8 @@ public class KthLargestElement {
         KthLargestElement kthElement = new KthLargestElement(3, nums);
         System.out.println(kthElement.add(3));
         System.out.println(kthElement.add(5));
+        System.out.println(kthElement.add(10));
+        System.out.println(kthElement.add(9));
+        System.out.println(kthElement.add(4));
     }
 }
