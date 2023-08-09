@@ -8,7 +8,7 @@ public class Search2DArray {
         int i = 0;
 
         if(row > 1){
-            for(i = 0; i < row; i++){
+            for(i = 0; i < row-1; i++){
                 if(target <= matrix[i][column - 1]){
                     break;
                 }
@@ -30,7 +30,7 @@ public class Search2DArray {
     }
 
     public static void main(String[] args) {
-        int[][] matrix = {{1,1}};
-        System.out.println(new Search2DArray().searchMatrix(matrix, 2));
+        int[][] matrix = {{1}};
+        System.out.println(new Search2DArray().searchMatrix(matrix, 1));
     }
 }

@@ -10,8 +10,8 @@ public class CarParking {
     }
 
     public void parkCar(){
-        firstCar = new Random().nextInt(1, 10);
-        secondCar = new Random().nextInt(1, 10);
+        firstCar = new Random().nextInt(1, size);
+        secondCar = new Random().nextInt(1, size);
 
         if(firstCar != secondCar){
             matrix[firstCar][0] = 1;
@@ -22,7 +22,7 @@ public class CarParking {
     }
 
     public void setParkingLocation(){
-        parkingPoint = new Random().nextInt(1, 10);
+        parkingPoint = new Random().nextInt(1, size);
         matrix[parkingPoint][size - 1] = 99;
     }
 
@@ -46,10 +46,6 @@ public class CarParking {
             System.out.print("("+location+","+i+")");
         }
         System.out.println();
-        if(i == parkingPoint){
-            return;
-        }
-
         // check move down or up
         int direction = parkingPoint - location;
         if(direction > 0) {
