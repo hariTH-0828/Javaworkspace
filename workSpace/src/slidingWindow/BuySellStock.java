@@ -1,4 +1,4 @@
-package workSpace.src.workSpace;
+package workSpace.src.slidingWindow;
 
 public class BuySellStock {
 
