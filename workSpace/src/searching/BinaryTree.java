@@ -1,4 +1,5 @@
 package workSpace.src.searching;
+
 public class BinaryTree {
 
 	TreeNode head;
@@ -104,7 +105,6 @@ public class BinaryTree {
 		}
 		return currNode.val;
 	}
-
 
 
 	public static void main(String[] args) {
