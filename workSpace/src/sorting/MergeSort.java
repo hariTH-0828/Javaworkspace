@@ -1,5 +1,7 @@
 package workSpace.src.sorting;
 
+import java.util.Arrays;
+
 public class MergeSort {
 
     public int[] mergeSort(int[] nums){
@@ -45,20 +47,21 @@ public class MergeSort {
 
         // If any of the elements are remain in leftArray
         while (leftIndex < leftArray.length){
-            nums[currentIndex] = leftArray[leftIndex];
+            nums[currentIndex++] = leftArray[leftIndex];
             leftIndex++;
         }
 
         // If any of the elements are remain in rightArray
         while(rightIndex < rightArray.length){
-            nums[currentIndex] = rightArray[rightIndex];
+            nums[currentIndex++] = rightArray[rightIndex];
             rightIndex++;
         }
 
     }
     public static void main(String[] args) {
-        int[] nums = { 31, 41, 59, 26, 41, 58 };
+        int[] nums = {6,3,8,1,2,0,7,5};
         MergeSort mergeSort = new MergeSort();
         mergeSort.mergeSort(nums);
+        System.out.println(Arrays.toString(nums));
     }
 }
