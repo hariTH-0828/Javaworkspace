@@ -1,4 +1,4 @@
-package linked_list;
+package workSpace.src.linked_list;
 
 public class SinglyLinkedList extends LinkedList {
 
