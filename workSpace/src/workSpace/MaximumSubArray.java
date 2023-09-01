@@ -1,4 +1,4 @@
-package workSpace;
+package workSpace.src.workSpace;
 
 public class MaximumSubArray {
 
